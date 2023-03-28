@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get_x_example/screen/home/homeView.dart';
-import 'package:get_x_example/screen/users/usres_page.dart';
+import 'package:get_x_example/posts_view.dart';
+import 'package:get_x_example/view/users/usres_page.dart';
 
 class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);
@@ -24,7 +24,7 @@ class _MainViewState extends State<MainView> {
                 onPressed: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage())
+                    MaterialPageRoute(builder: (context) => PostsView())
                   );
                 },
                 child: Text('Posts')),

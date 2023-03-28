@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get_x_example/controller/home_controller.dart';
 import 'package:get_x_example/models/postModel.dart';
-import 'package:get_x_example/screen/home/widgets/post_item.dart';
+import 'package:get_x_example/view/home/widgets/post_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

@@ -6,7 +6,7 @@ import 'package:get_x_example/service/post_service.dart';
 import '../service/users_service.dart';
 import '../service/utils_service.dart';
 
-class HomeController extends GetxController {
+class SplashController extends GetxController {
   var isLoading = false.obs;
   var posts = [].obs;
 
@@ -14,7 +14,7 @@ class HomeController extends GetxController {
   TextEditingController titleCtr = TextEditingController();
   TextEditingController bodyCtr = TextEditingController();
 
-  void apiPostList() async {
+  void apiSplashList() async {
     isLoading.value = true;
     var res = await GetPostService.getPost();
     if(res != null){

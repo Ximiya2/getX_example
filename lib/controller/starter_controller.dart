@@ -6,32 +6,36 @@ import 'package:get_x_example/service/post_service.dart';
 import '../service/users_service.dart';
 import '../service/utils_service.dart';
 
-class HomeController extends GetxController {
-  var isLoading = false.obs;
-  var posts = [].obs;
+class StarterController extends GetxController {
+  var isLoading = false;
+  var posts = [];
 
   TextEditingController userIdCtr = TextEditingController();
   TextEditingController titleCtr = TextEditingController();
   TextEditingController bodyCtr = TextEditingController();
 
-  void apiPostList() async {
-    isLoading.value = true;
+  void apiStarterList() async {
+    isLoading = true;
+    update();
     var res = await GetPostService.getPost();
     if(res != null){
-      posts.value = res;
+      posts = res;
     }
-    isLoading.value = false;
+    isLoading = false;
+    update();
   }
 
   void deletePost(BuildContext context, PostModel post) async {
-    isLoading.value = true;
+    isLoading = true;
+    update();
     bool result = await GetPostService.deletePost(post.id);
     if (result) {
       Utils.snackBarSucces('Deleted successfully', context);
     } else {
       Utils.snackBarError('Something is wrong', context);
     }
-    isLoading.value = false;
+    isLoading = false;
+    update();
   }
 
   void editPost(
@@ -39,7 +43,8 @@ class HomeController extends GetxController {
       PostModel post,
       int index
       ) {
-    isLoading.value = true;
+    isLoading = true;
+    update();
     userIdCtr.text = post.userId.toString();
     titleCtr.text = post.title;
     bodyCtr.text = post.body;
@@ -62,13 +67,15 @@ class HomeController extends GetxController {
             Utils.snackBarError('Please fill all fileds', context);
           }
         });
-    isLoading.value = false;
+    isLoading = false;
+    update();
   }
 
   void addPost(
       BuildContext context,
       ){
-    isLoading.value = true;
+    isLoading = true;
+    update();
     _showBottomSheet(context, () async {
       if(userIdCtr.text.isNotEmpty && titleCtr.text.isNotEmpty && bodyCtr.text.isNotEmpty) {
         PostModel newPost = PostModel(
@@ -88,7 +95,8 @@ class HomeController extends GetxController {
         Utils.snackBarError('Please fill all fileds', context);
       }
     });
-    isLoading.value = false;
+    isLoading = false;
+    update();
   }
 
   void _showBottomSheet(BuildContext context, void Function() func) {

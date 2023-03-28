@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get_x_example/models/usersModel.dart';
-import 'package:get_x_example/screen/users/userView.dart';
-import 'package:get_x_example/screen/users/widgets/users_item.dart';
+import 'package:get_x_example/view/users/widgets/users_item.dart';
 import '../../controller/user_controller.dart';
-import '../../service/users_service.dart';
 
 class UsersPage extends StatefulWidget {
    UsersPage({Key? key}) : super(key: key);
